@@ -1,0 +1,37 @@
+.container { min-height: 100vh; background-color: $bg; }
+
+.content {
+  max-width: 800px;
+  margin: 32px auto;
+  padding: 0 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.card {
+  @include card;
+  h2 { color: $green; margin: 0; }
+}
+
+input, select, textarea {
+  padding: 12px;
+  border: 1px solid $border;
+  border-radius: $radius;
+  font-size: 15px;
+  font-family: inherit;
+}
+
+button {
+  @include btn($green, white);
+  padding: 12px;
+  font-size: 16px;
+}
+
+.error { color: $red; font-size: 14px; }
+.success { color: $green; font-size: 14px; }
+
+@include mobile {
+  .content { margin: 16px auto; padding: 0 12px; }
+  .card { padding: 16px; }
+}

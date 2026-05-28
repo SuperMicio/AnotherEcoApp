@@ -1,0 +1,47 @@
+.container { min-height: 100vh; background-color: $bg; }
+
+.content {
+  max-width: 800px;
+  margin: 32px auto;
+  padding: 0 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.stat-card {
+  @include card;
+  align-items: center;
+
+  .stat-number { font-size: 48px; font-weight: bold; }
+  .stat-label { font-size: 15px; color: $text-light; }
+
+  &--total .stat-number { color: $blue; }
+  &--pending .stat-number { color: $orange; }
+  &--approved .stat-number { color: $green; }
+  &--rejected .stat-number { color: $red; }
+}
+
+.card {
+  @include card;
+  h2 { color: $blue; margin: 0; }
+}
+
+.type-row { display: flex; align-items: center; gap: 12px; }
+.type-label { width: 180px; font-size: 14px; color: $text; }
+.bar-wrapper { flex: 1; background: $bg; border-radius: $radius-full; height: 20px; overflow: hidden; }
+.bar { height: 100%; background: $blue; border-radius: $radius-full; transition: width 0.5s ease; }
+.type-count { width: 30px; text-align: right; font-weight: bold; color: $text; }
+.loading { text-align: center; padding: 60px; color: $text-muted; font-size: 18px; }
+
+@include mobile {
+  .content { margin: 16px auto; padding: 0 12px; }
+  .stat-card .stat-number { font-size: 36px; }
+  .type-label { width: 120px; font-size: 12px; }
+}

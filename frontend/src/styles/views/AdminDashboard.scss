@@ -1,0 +1,36 @@
+.container { min-height: 100vh; background-color: $bg; }
+.content { max-width: 900px; margin: 32px auto; padding: 0 16px; }
+
+.card { @include card; }
+
+.admin-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+
+  h2 { color: $blue; margin: 0; }
+}
+
+.nav-buttons { display: flex; gap: 10px; }
+.nav-btn { @include btn($blue); }
+
+.filters {
+  display: flex;
+  gap: 12px;
+
+  select {
+    padding: 10px;
+    border: 1px solid $border;
+    border-radius: $radius;
+    font-size: 14px;
+    flex: 1;
+  }
+}
+
+@include mobile {
+  .content { margin: 16px auto; padding: 0 12px; }
+  .filters { flex-direction: column; }
+  .admin-nav { flex-direction: column; align-items: flex-start; }
+}

@@ -1,0 +1,16 @@
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  margin-top: 8px;
+}
+
+.page-btn { @include btn($blue); }
+.page-info { color: $text-light; font-size: 14px; }
+
+@include mobile {
+  .pagination { gap: 8px; }
+  .page-btn { padding: 6px 12px; font-size: 13px; }
+  .page-info { font-size: 12px; }
+}

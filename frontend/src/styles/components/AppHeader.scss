@@ -1,0 +1,66 @@
+@import '../variables';
+
+.header {
+  color: white;
+  padding: 16px 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.app-title {
+  margin: 0;
+  font-size: 22px;
+  cursor: pointer;
+  &:hover { opacity: 0.85; }
+}
+
+.back-btn {
+  @include btn(rgba(255,255,255,0.2), white);
+  &:hover { filter: none; background: rgba(255,255,255,0.3); }
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.user-email {
+  font-size: 14px;
+  opacity: 0.9;
+  cursor: pointer;
+  &:hover { text-decoration: underline; }
+}
+
+.logout-btn {
+  @include btn($white, $text);
+  font-weight: bold;
+}
+
+.offline-banner {
+  background-color: $red;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+@include mobile {
+  .user-info { gap: 4px; margin-left: 4px; }
+  .back-btn {  padding: 3px 10px; font-size: 10px; }
+  .logout-btn { padding: 4px 10px; font-size: 12px; }
+  .header { padding: 12px 16px; }
+  .app-title { font-size: 12px; }
+  .user-email { font-size: 10px; }
+}

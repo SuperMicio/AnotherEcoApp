@@ -1,0 +1,78 @@
+@import '../variables';
+
+.report-item {
+  border: 1px solid $border;
+  border-radius: $radius;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  margin-bottom: 12px;
+
+  &:hover { transform: translateY(-2px); box-shadow: $shadow-hover; border-color: #aaa; }
+  &.new-report, &.updated-report { border-color: $yellow; background-color: $yellow-light; }
+}
+
+.report-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.report-type { font-weight: bold; color: $text; }
+.report-meta { color: $text-light; margin: 0; font-size: 14px; }
+.report-description { color: $text; margin: 0; }
+.report-date { color: $text-muted; margin: 0; font-size: 12px; }
+
+.report-reactions {
+  display: flex;
+  gap: 12px;
+  font-size: 13px;
+  color: $text-light;
+  margin-top: 4px;
+}
+
+.status {
+  padding: 4px 10px;
+  border-radius: $radius-full;
+  font-size: 13px;
+  font-weight: bold;
+
+  &--pending { @include status-badge($orange-light, $orange); }
+  &--approved { @include status-badge($green-light, $green); }
+  &--rejected { @include status-badge($red-light, $red); }
+}
+
+.actions { display: flex; gap: 10px; margin-top: 8px; }
+.btn--approve { @include btn($green); }
+.btn--reject { @include btn($red); }
+.empty { color: $text-muted; text-align: center; padding: 20px; }
+
+.ai-badge {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 4px;
+}
+
+.severity {
+  padding: 3px 8px;
+  border-radius: $radius-full;
+  font-size: 12px;
+  font-weight: bold;
+
+  &--bassa { @include status-badge(#e8f5e9, #2e7d32); }
+  &--media { @include status-badge(#fff9c4, #f57f17); }
+  &--alta { @include status-badge(#ffebee, #c62828); }
+}
+
+.fake-badge {
+  padding: 3px 8px;
+  border-radius: $radius-full;
+  font-size: 12px;
+  font-weight: bold;
+  @include status-badge(#fff3e0, #e65100);
+}

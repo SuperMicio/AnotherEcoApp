@@ -1,0 +1,65 @@
+// Colori principali
+$green: #2e7d32;
+$green-dark: #1b5e20;
+$green-light: #e8f5e9;
+$blue: #1a237e;
+$blue-dark: #283593;
+$blue-light: #e8eaf6;
+$red: #c62828;
+$red-light: #ffebee;
+$orange: #e65100;
+$orange-light: #fff3e0;
+$yellow: #f9a825;
+$yellow-light: #fffde7;
+$bg: #f0f4f0;
+$white: #ffffff;
+$border: #eeeeee;
+$text: #333333;
+$text-light: #666666;
+$text-muted: #999999;
+
+// Bordi
+$radius: 8px;
+$radius-lg: 12px;
+$radius-full: 20px;
+
+// Ombre
+$shadow: 0 2px 12px rgba(0,0,0,0.08);
+$shadow-hover: 0 4px 12px rgba(0,0,0,0.1);
+
+// Mixin
+@mixin card {
+  background: $white;
+  border-radius: $radius-lg;
+  box-shadow: $shadow;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+@mixin btn($bg, $color: white) {
+  padding: 8px 16px;
+  background: $bg;
+  color: $color;
+  border: none;
+  border-radius: $radius;
+  cursor: pointer;
+  font-size: 14px;
+  transition: filter 0.2s;
+  &:hover { filter: brightness(0.9); }
+  &:disabled { background: #ccc; cursor: not-allowed; }
+}
+
+@mixin status-badge($bg, $color) {
+  background: $bg;
+  color: $color;
+  padding: 4px 10px;
+  border-radius: $radius-full;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+@mixin mobile {
+  @media (max-width: 600px) { @content; }
+}

@@ -1,0 +1,16 @@
+@import '../variables';
+
+.map-view {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  h3 { color: $text; margin: 0; font-size: 16px; }
+}
+
+.map-container {
+  height: 300px;
+  border-radius: $radius;
+  border: 1px solid $border;
+  z-index: 1;
+}

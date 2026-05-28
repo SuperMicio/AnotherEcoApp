@@ -1,0 +1,164 @@
+.container { min-height: 100vh; background-color: $bg; }
+.content { max-width: 800px; margin: 32px auto; padding: 0 16px; display: flex; flex-direction: column; gap: 24px; }
+
+.report-card, .comments-card {
+  @include card;
+}
+
+.report-top { display: flex; justify-content: space-between; align-items: center; }
+.report-type { font-weight: bold; font-size: 18px; color: $text; }
+.report-author, .report-location { color: $text-light; margin: 0; font-size: 14px; }
+.report-description { color: $text; margin: 0; font-size: 16px; line-height: 1.6; }
+.report-date { color: $text-muted; margin: 0; font-size: 12px; }
+
+.status {
+  padding: 4px 12px;
+  border-radius: $radius-full;
+  font-size: 13px;
+  font-weight: bold;
+
+  &.pending { @include status-badge($orange-light, $orange); }
+  &.approved { @include status-badge($green-light, $green); }
+  &.rejected { @include status-badge($red-light, $red); }
+}
+
+.reactions { display: flex; gap: 12px; margin-top: 8px; }
+
+.reaction-btn {
+  padding: 8px 20px;
+  border: 2px solid $border;
+  border-radius: $radius-full;
+  background: white;
+  cursor: pointer;
+  font-size: 16px;
+  transition: all 0.2s;
+  &:hover { border-color: #999; }
+}
+
+.active-like { border-color: $green; background: $green-light; color: $green; }
+.active-dislike { border-color: $red; background: $red-light; color: $red; }
+
+.admin-actions { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 8px; }
+.btn-approve { @include btn($green); }
+.btn-reject { @include btn($red); }
+.btn-delete { @include btn(#333); }
+
+h2 { color: $text; margin: 0; }
+
+.comment-form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  textarea {
+    padding: 12px;
+    border: 1px solid $border;
+    border-radius: $radius;
+    font-size: 15px;
+    font-family: inherit;
+    resize: vertical;
+  }
+
+  button {
+    @include btn($green, white);
+    padding: 10px;
+    font-size: 15px;
+    align-self: flex-end;
+    width: 160px;
+  }
+}
+
+.comment-item { border-top: 1px solid $border; padding-top: 12px; display: flex; flex-direction: column; gap: 6px; }
+.comment-header { display: flex; justify-content: space-between; align-items: center; }
+.comment-author { font-weight: bold; font-size: 14px; color: $text-light; }
+.comment-actions { display: flex; align-items: center; gap: 8px; }
+.comment-date { font-size: 12px; color: $text-muted; }
+.comment-text { color: $text; margin: 0; line-height: 1.5; }
+
+.btn-delete-comment {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  padding: 2px 6px;
+  border-radius: $radius;
+  &:hover { background: $red-light; }
+}
+
+.empty { color: $text-muted; text-align: center; padding: 20px; }
+.loading { text-align: center; padding: 60px; color: $text-muted; font-size: 18px; }
+
+.deleted-card {
+  max-width: 500px;
+  margin: 80px auto;
+  @include card;
+  align-items: center;
+  text-align: center;
+
+  h2 { color: $red; }
+  p { color: $text-light; }
+  button { @include btn($blue, white); padding: 12px; font-size: 15px; }
+}
+
+.success { color: $green; font-size: 14px; }
+.error { color: $red; font-size: 14px; }
+
+.ai-section {
+  border-top: 1px solid $border;
+  padding-top: 12px;
+  margin-top: 4px;
+}
+
+.ai-loading {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: $text-muted;
+  font-size: 14px;
+}
+
+.ai-spinner {
+  width: 20px;
+  height: 20px;
+  border: 3px solid $border;
+  border-top-color: $blue;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.ai-result {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  h3 { color: $blue; margin: 0; font-size: 16px; }
+}
+
+.ai-badges { display: flex; gap: 8px; flex-wrap: wrap; }
+
+.severity {
+  padding: 4px 10px;
+  border-radius: $radius-full;
+  font-size: 13px;
+  font-weight: bold;
+
+  &--bassa { @include status-badge(#e8f5e9, #2e7d32); }
+  &--media { @include status-badge(#fff9c4, #f57f17); }
+  &--alta { @include status-badge(#ffebee, #c62828); }
+}
+
+.fake-badge { padding: 4px 10px; border-radius: $radius-full; font-size: 13px; font-weight: bold; @include status-badge(#fff3e0, #e65100); }
+.legit-badge { padding: 4px 10px; border-radius: $radius-full; font-size: 13px; font-weight: bold; @include status-badge(#e8f5e9, #2e7d32); }
+.ai-reason { color: $text-light; margin: 0; font-size: 14px; font-style: italic; }
+.ai-date { color: $text-muted; margin: 0; font-size: 12px; }
+
+@keyframes highlight { 0% { background-color: $yellow-light; } 100% { background-color: white; } }
+.highlight { animation: highlight 2s ease; }
+
+@include mobile {
+  .content { margin: 16px auto; padding: 0 12px; }
+  .report-card, .comments-card { padding: 16px; }
+  .admin-actions { flex-direction: column; }
+}

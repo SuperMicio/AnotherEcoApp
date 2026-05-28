@@ -1,0 +1,47 @@
+@import '../variables';
+
+.map-picker {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.map-picker-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  color: $text;
+}
+
+.optional { color: $text-muted; font-size: 12px; }
+
+.toggle-btn {
+  @include btn($blue, white);
+  padding: 6px 12px;
+  font-size: 13px;
+}
+
+.map-hint { font-size: 13px; color: $text-muted; margin: 0; }
+
+.map-container {
+  height: 300px;
+  border-radius: $radius;
+  border: 1px solid $border;
+  z-index: 1;
+}
+
+.coords-info {
+  margin: 8px 0 0 0;
+  font-size: 13px;
+  color: $green;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.clear-btn {
+  @include btn($red, white);
+  padding: 4px 8px;
+  font-size: 12px;
+}

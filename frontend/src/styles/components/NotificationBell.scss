@@ -1,0 +1,72 @@
+.bell-wrapper {
+  position: relative;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.bell-icon { font-size: 22px; }
+
+.bell-badge {
+  position: absolute;
+  top: -4px; right: -4px;
+  background: red;
+  color: white;
+  font-size: 11px;
+  font-weight: bold;
+  border-radius: 50%;
+  width: 18px; height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.notifications-dropdown {
+  position: absolute;
+  top: 40px; right: 0;
+  background: $white;
+  color: $text;
+  border-radius: $radius-lg;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+  width: 320px;
+  z-index: 100;
+  overflow: hidden;
+}
+
+.notifications-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  border-bottom: 1px solid $border;
+  font-size: 15px;
+}
+
+.clear-btn {
+  font-size: 12px;
+  color: $blue;
+  cursor: pointer;
+  &:hover { text-decoration: underline; }
+}
+
+.notification-item {
+  padding: 12px 16px;
+  border-bottom: 1px solid #f5f5f5;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  gap: 8px;
+  cursor: pointer;
+  &:hover { background-color: #f5f5f5; }
+}
+
+.notif-time { font-size: 11px; color: $text-muted; white-space: nowrap; }
+.no-notifications { padding: 20px; text-align: center; color: $text-muted; font-size: 14px; }
+
+@include mobile {
+  .notifications-dropdown { width: 280px; right: -20px;}
+  .notifications-header { font-size: 13px; }
+  .clear-btn { font-size: 10px; }
+  .notification-item { font-size: 12px; }
+  .notif-time { font-size: 10px; }
+}
